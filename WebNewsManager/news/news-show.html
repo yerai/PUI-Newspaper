@@ -1,0 +1,27 @@
+<div ng-init="getNew()" class="container">
+    <div class="well my-card small-well">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <img class="img-responsive center-block my-img" src="{{getImage(new.image_media_type, new.image_data)}}"/>
+            </div>
+            <div class="col-sm-12 col-md-8">
+                <h1>{{new.title}}</h1>
+                <h3>{{new.subtitle}}</h3>
+                <h4 class="my-text">{{new.abstract}}</h4>
+                <p class="my-text">{{new.body}}</p>
+                
+            </div>
+        </div>
+        <hr /> 
+        <div class="row">
+            <div class="col-sm-3 pull-right">
+                <h4>{{new.category}}</h4>
+                <p><strong>Author: </strong>{{new.id_user}}<br>
+                <strong>Published: </strong>{{new.update_date}}</p>
+                           
+            </div>
+        </div>
+        
+
+    </div>
+</div>

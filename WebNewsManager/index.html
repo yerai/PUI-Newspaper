@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>EIT Digital Newspaper</title>
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/app.css">
+
+	<!-- Scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-route.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-resource.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-sanitize.js"></script>
+
+
+</head>
+
+<body ng-app="newssapp" ng-controller="mainCtrl">
+
+	<!-- Header -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+
+			<!-- Collapse -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand navbar-content" href="#">EIT Digital Newspaper</a>
+			</div>
+		  
+			<!-- Content -->
+			<div class="collapse navbar-collapse" id="navbar">
+				<ul class="nav navbar-nav">
+					<li><a href="#">All News</a></li>
+					<li><a href="#!/news/National">National</a></li>
+					<li><a href="#!/news/Economy">Economy</a></li>
+					<li><a href="#!/news/Sports">Sports</a></li>
+					<li><a href="#!/news/Technology">Technology</a></li>
+				</ul>
+
+				<button type="button" data-toggle="modal" data-target="#loginModal" class="btn btn-navbar navbar-btn navbar-right">Sign in</button>
+
+				<form class="navbar-form navbar-right">
+					<input type="text" ng-model="text" class="form-control search-navbar" placeholder="Search...">
+				</form>
+
+				
+			</div>
+
+		</div>
+	</nav>
+
+	<!-- Modal -->
+	<div class="modal fade" id="loginModal" role="dialog">
+		<div class="modal-dialog">
+		
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-body">
+					<h2>Log in</h2>
+					<hr />
+					<form name="logInForm">
+						<div class="form-group">
+							<h4>Username:</h4>
+							<div class="alert alert-danger my-alert" ng-show="logInForm.username.$dirty && logInForm.username.$invalid" role="alert">Username field is required.</div>
+							<input type="text" class="form-control" ng-model="username" name="username" placeholder="Enter username..." required>
+						</div>
+						<div class="form-group">
+							<h4>Password:</h4>
+							<div class="alert alert-danger my-alert" ng-show="logInForm.password.$dirty && logInForm.password.$invalid" role="alert">Password field is required.</div>
+							<input type="password" class="form-control" ng-model="password" name="password" placeholder="Enter password..." required>
+						</div>
+						<hr />
+						<div class="row">
+							<button type="submit" ng-click="logIn()" ng-disabled="logInForm.username.$invalid || logInForm.password.$invalid" class="btn btn-default my-btn pull-right col-sm-12 col-md-2" >Log in</button>
+							<button type="button" ng-click="resetLogin()" data-dismiss="modal" class="btn btn-default my-btn pull-right col-sm-12 col-md-2" >Cancel</button>
+						</div>
+					</form>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+
+	<!-- Body -->
+	<div ng-view class="container">
+		
+	</div>
+
+	<!-- AngularJS App Code ==================================================== -->
+	<script src="news/news-app.js"></script>
+	<script src="news/news-services.js"></script>
+	<script src="news/news-controllers.js"></script>
+
+	<!-- Footer -->
+	
+
+</body>
+
+
+</html>

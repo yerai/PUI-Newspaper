@@ -1,0 +1,42 @@
+<!-- News Section -->
+<div ng-init="getNews()" class="container">
+
+    <div class="row">
+        <!-- First New -->
+        <div ng-click="showNew(new.id)" ng-repeat="new in news | filter : text" ng-if="$first" class="col-sm-12 well my-card big-well">
+            <div class="row">
+                <div class="col-sm-12 col-md-3">
+                    <img class="img-responsive center-block my-img" ng-click="showNew(new.id)" src="{{getImage(new.thumbnail_media_type, new.thumbnail_image)}}"/>
+                </div>
+                <div class="col-sm-12- col-md-9">
+                    <h1>{{new.title}}</h1>
+                    <h4 class="my-text">{{new.subtitle}}</h4>
+                    <p class="my-text">{{new.abstract}}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rest of News -->
+        <div ng-click="showNew(new.id)" ng-repeat="new in news | filter : text" ng-if="!$first" class="col-sm-8 well my-card small-well">
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <img class="img-responsive center-block my-img" ng-click="showNew(new.id)" src="{{getImage(new.thumbnail_media_type, new.thumbnail_image)}}"/>
+                </div>
+                <div class="col-sm-12- col-md-8">
+                    <h1>{{new.title}}</h1>
+                    <h4 class="my-text">{{new.subtitle}}</h4>
+                    <p class="my-text">{{new.abstract}}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 pull-right">
+            <div class="row">
+                <div class="well col-sm-11 pull-right">
+                    <a class="twitter-timeline" data-height="70vh" href="https://twitter.com/EIT_Digital?ref_src=twsrc%5Etfw">Tweets by EIT_Digital</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

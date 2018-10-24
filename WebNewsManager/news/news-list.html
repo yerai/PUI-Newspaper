@@ -1,35 +1,59 @@
 <!-- News Section -->
 <div ng-init="getNews()" class="container">
 
-    <div class="row">
-        <!-- First New -->
-        <div ng-click="showNew(new.id)" ng-repeat="new in news | filter : text" ng-if="$first" class="col-sm-12 well my-card big-well">
-            <div class="row">
-                <div class="col-sm-12 col-md-3">
-                    <img class="img-responsive center-block my-img" ng-click="showNew(new.id)" src="{{getImage(new.thumbnail_media_type, new.thumbnail_image)}}"/>
+    <!-- Main News -->
+    <div class = "row">
+        <div ng-repeat= "new in news | filter : text">
+                <div ng-if="$index == 0" class = "col-sm-12 col-md-4">
+                    <img class="img-responsive center-block col-sm-12" ng-click="showNew(new.id)" src="{{getImage(new.thumbnail_media_type, new.thumbnail_image)}}"/>
+                    <p class="my-category">{{new.category}}</p>
+                    <h2>{{new.title}}</h2>
+                    <h4>{{new.subtitle}}</h4>
+                    <p>{{new.abstract}}</p>
+                    <button type="button" ng-show="loggedIn" ng-click="" class="btn"><span class="glyphicon glyphicon-pencil"></span></button>
+                    <button type="button" ng-show="loggedIn" ng-click="" class="btn"><span class="glyphicon glyphicon-trash"></span></button>
                 </div>
-                <div class="col-sm-12- col-md-9">
-                    <h1>{{new.title}}</h1>
-                    <h4 class="my-text">{{new.subtitle}}</h4>
-                    <p class="my-text">{{new.abstract}}</p>
+                <div ng-if="$index == 1" class = "col-sm-12 col-md-4">
+                    <img class="img-responsive center-block col-sm-12" ng-click="showNew(new.id)" src="{{getImage(new.thumbnail_media_type, new.thumbnail_image)}}"/>
+                    <p class="my-category">{{new.category}}</p>
+                    <h2>{{new.title}}</h2>
+                    <h4>{{new.subtitle}}</h4>
+                    <p>{{new.abstract}}</p>
+                </div>
+                <div ng-if="$index == 2" class = "col-sm-12 col-md-4">
+                    <img class="img-responsive center-block col-sm-12" ng-click="showNew(new.id)" src="{{getImage(new.thumbnail_media_type, new.thumbnail_image)}}"/>
+                    <p class="my-category">{{new.category}}</p>
+                    <h2>{{new.title}}</h2>
+                    <h4>{{new.subtitle}}</h4>
+                    <p>{{new.abstract}}</p>
+                </div>
+            
+        </div>
+    </div>
+    <hr />
+
+    <!-- Rest of News -->
+    <div class = "row">
+
+        <div class="col-sm-12 col-md-8">
+            <div ng-repeat= "new in news | filter : text">
+                <div ng-if="$index > 2" class = "col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4">
+                            <img class="img-responsive center-block col-sm-12" ng-click="showNew(new.id)" src="{{getImage(new.thumbnail_media_type, new.thumbnail_image)}}"/>
+                        </div>
+                        <div class="col-sm-12 col-md-8">
+                            <p class="my-category">{{new.category}}</p>
+                            <h2>{{new.title}}</h2>
+                            <h4>{{new.subtitle}}</h4>
+                            <p>{{new.abstract}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Rest of News -->
-        <div ng-click="showNew(new.id)" ng-repeat="new in news | filter : text" ng-if="!$first" class="col-sm-8 well my-card small-well">
-            <div class="row">
-                <div class="col-sm-12 col-md-4">
-                    <img class="img-responsive center-block my-img" ng-click="showNew(new.id)" src="{{getImage(new.thumbnail_media_type, new.thumbnail_image)}}"/>
-                </div>
-                <div class="col-sm-12- col-md-8">
-                    <h1>{{new.title}}</h1>
-                    <h4 class="my-text">{{new.subtitle}}</h4>
-                    <p class="my-text">{{new.abstract}}</p>
-                </div>
-            </div>
-        </div>
-        
+        <!-- Twitter -->
         <div class="col-md-4 pull-right">
             <div class="row">
                 <div class="well col-sm-11 pull-right">
@@ -37,6 +61,6 @@
                 </div>
             </div>
         </div>
-
     </div>
+
 </div>

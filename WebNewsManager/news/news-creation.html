@@ -1,4 +1,69 @@
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-sm-12 col-md-8">
+            <h1>Add New</h1>
+            <hr />
+            <form name="createNewForm">
+                <!-- Title -->
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <div ng-show="createNewForm.title.$dirty && createNewForm.title.$invalid" class="alert alert-danger my-alert" role="alert">Title field is required.</div>
+                    <input type="text" class="form-control" ng-model="new.title" name="title" id="title" placeholder="Title..." required>
+                </div>
+                <!-- Subtitlte -->
+                <div class="form-group">
+                        <label for="subtitle">Subtitlte:</label>
+                        <div ng-show="createNewForm.subtitle.$dirty && createNewForm.subtitle.$invalid" class="alert alert-danger my-alert" role="alert">Subtitlte field is required.</div>
+                        <input type="text" class="form-control" ng-model="new.subtitle" name="subtitle" id="subtitle" placeholder="Subtitlte..." required>
+                    </div>
+                <!-- Category -->
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <div ng-show="createNewForm.category.$dirty && createNewForm.category.$invalid" class="alert alert-danger my-alert" role="alert">Category field is required.</div>
+                    <select class="form-control" ng-model="new.category" id="category" name="category" required>
+                        <option>National</option>
+                        <option>Economy</option>
+                        <option>Sports</option>
+                        <option>Technology</option>
+                    </select>
+                </div>
+                <!-- Abstract -->
+                <div class="form-group">
+                    <label for="abstract">Abstract:</label>
+                    <div ng-show="createNewForm.abstract.$dirty && createNewForm.abstract.$invalid" class="alert alert-danger my-alert" role="alert">Abstract field is required.</div>
+                    <textarea type="text" class="form-control" ng-model="new.abstract" name="abstract" id="abstract" placeholder="Abstract..." required></textarea>
+                </div>
+                <!-- Body -->
+                <div class="form-group">
+                    <label for="body">Body:</label>
+                    <div ng-show="createNewForm.body.$dirty && createNewForm.body.$invalid" class="alert alert-danger my-alert" role="alert">Body field is required.</div>
+                    <textarea type="text" class="form-control" ng-model="new.body" name="body" id="body" placeholder="Body..." required></textarea>
+                </div>
+
+                <!-- Picture -->
+                <div class="form-group">
+                    <img class="mg-responsive center-block col-sm-12 col-md-6" ng-src="{{ 'data:' + new.image_media_type + ';base64,' + new.image_data }}" />
+                </div>
+
+                <div class="form-group">
+                    <input type="file"  class="col-sm-12" ng-file-select="onFileSelect($files);" ng-model="new"></span>
+                </div>
+
+                
+                <!-- Submit -->
+                <div class="form-group">
+                    <button type="submit"  ng-click="createNew()" ng-disabled="createNewForm.title.$invalid || createNewForm.subtitle.$invalid || createNewForm.category.$invalid || createNewForm.abstract.$invalid || createNewForm.body.$invalid" class="btn col-sm-12 my-button">Publish</button>
+                </div>
+                <div class="form-group">
+                    <button type="button" ng-click="resetForm()" class="btn col-sm-12 my-button">Cancel</button>
+                </div>
+            </form>
+           
+
+        </div>
+    </div>
+</div>
 <!-- Code to browse the image file and binds the image to the scope variables "news.image_media_type" and "news.image_data" -->
  
 <!-- <img style="width:300px; height:300px;" ng-src="{{ 'data:' + news.image_media_type + ';base64,' + news.image_data }}" />

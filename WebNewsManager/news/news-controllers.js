@@ -53,17 +53,82 @@ app.controller('newsShowCtrl', function($scope, $routeParams, NewsDetailsService
     };
 });
 
-app.controller('mainCtrl', function($scope, LoginService, $routeParams, $filter, $location, NewsListService){
+app.controller('mainCtrl', function($scope, LoginService, $http, $location){
 
+    // Function to show Search Bar
+    $scope.searchBar = false;
+    $scope.showSearch = function(){
+        if (!$scope.searchBar){
+            $scope.searchBar = true;
+        }else{
+            $scope.searchBar = false;
+        }
+    }
+
+    //Function to show Log in Form
+    $scope.wantsToLogIn = false;
+    $scope.showTheLogIn = function(){
+        $scope.wantsToLogIn = true;
+    }
+
+    // Funtion to see wether the category is active or not in the navbar
+    $scope.isActive = function (viewLocation) {
+        return viewLocation === $location.path();
+    };
+
+    // Log in variables
     $scope.username = '';
     $scope.password = '';
+    $scope.loggedIn = false;
+    
 
-   
-
+    // Function to reset log in form
     $scope.resetLogin = function(){
+        $scope.wantsToLogIn = false;
         $scope.username = '';
         $scope.password = '';
     };
+
+    // Function to obtain token after log in
+    $scope.logIn = function(){
+        LoginService.login({passwd: $scope.password, username: $scope.username}, function(data){
+            $http.defaults.headers.common['Authorization'] = data.Authorization + ' apikey=' + data.apikey;
+            $scope.loggedIn = true;
+            $location.path("/");
+        });
+    }
+
+    // Function to log out
+    $scope.logOut = function(){
+        $http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=REVWX1RFQU1fMDE=';
+        $scope.loggedIn = false;
+        $scope.resetLogin();
+    }
+
+    //Callback for ng-click 'addNew'
+    $scope.addNew = function (newId) {
+        $location.path('/add');
+    };
+
+});
+
+app.controller('newsCreationCtrl', function($scope, NewsDetailsService, $http, $location){
+    $scope.new = {
+        title: '',
+        subtitle: '',
+        abstract: '',
+        body: '',
+        category: '',
+        image_media_type: '',
+        image_data: ''
+    };
+
+    // Function to obtain token after log in
+    $scope.createNew = function(){
+        NewsDetailsService.save({title: $scope.new.title, subtitle: $scope.new.subtitle, abstract: $scope.new.abstract, body: $scope.new.body, category: $scope.new.category, image_media_type: $scope.new.image_media_type, image_data: $scope.new.image_data}, function(data){
+           
+        });
+    }
 
 });
 

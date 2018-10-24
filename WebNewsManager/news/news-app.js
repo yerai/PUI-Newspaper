@@ -15,6 +15,10 @@ app.config(function ($routeProvider) {
 		templateUrl: 'news/news-list.html',
 		controller: 'newsListCtrl'
 	})
+	.when('/add', {
+		templateUrl: 'news/news-creation.html',
+		controller: 'newsCreationCtrl'
+	})
 	.otherwise({
 		templateUrl: 'news/news-list.html',
 		controller: 'newsListCtrl'

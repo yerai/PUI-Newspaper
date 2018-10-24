@@ -9,6 +9,7 @@
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/app.css">
+	<link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
 
 	<!-- Scripts -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -24,9 +25,10 @@
 <body ng-app="newssapp" ng-controller="mainCtrl">
 
 	<!-- Header -->
+
+	<h1 class="main-title">EIT Digital Newspaper</h1>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
-
 			<!-- Collapse -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -35,63 +37,46 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand navbar-content" href="#">EIT Digital Newspaper</a>
 			</div>
-		  
+
 			<!-- Content -->
 			<div class="collapse navbar-collapse" id="navbar">
+				
+				<!-- Categories -->
 				<ul class="nav navbar-nav">
-					<li><a href="#">All News</a></li>
-					<li><a href="#!/news/National">National</a></li>
-					<li><a href="#!/news/Economy">Economy</a></li>
-					<li><a href="#!/news/Sports">Sports</a></li>
-					<li><a href="#!/news/Technology">Technology</a></li>
+						<li ng-class="{ active: isActive('') }"><a href="#">All News</a></li>
+						<li ng-class="{ active: isActive('/news/National') }"><a href="#!/news/National">National</a></li>
+						<li ng-class="{ active: isActive('/news/Economy') }"><a href="#!/news/Economy">Economy</a></li>
+						<li ng-class="{ active: isActive('/news/Sports') }"><a href="#!/news/Sports">Sports</a></li>
+						<li ng-class="{ active: isActive('/news/Technology') }"><a href="#!/news/Technology">Technology</a></li>
 				</ul>
+				
+				<!-- Sign in -->
+				<button ng-show="!wantsToLogIn && !loggedIn" ng-click="showTheLogIn()" type="button" class="btn btn-navbar navbar-btn navbar-right"><span class="glyphicon glyphicon-log-in"></span></button>
 
-				<button type="button" data-toggle="modal" data-target="#loginModal" class="btn btn-navbar navbar-btn navbar-right">Sign in</button>
+				<form name="logInForm" ng-show="wantsToLogIn && !loggedIn" class="navbar-form navbar-right">
+						<input type="text" class="form-control" ng-model="username" name="username" placeholder="Enter username..." required>
+						<input type="password" class="form-control" ng-model="password" name="password" placeholder="Enter password..." required>
+						<button type="submit" ng-click="logIn()" ng-disabled="logInForm.username.$invalid || logInForm.password.$invalid" class="form-control"><span class="glyphicon glyphicon-ok"></span></button>
+						<button type="submit" ng-click="resetLogin()" class="form-control"><span class="glyphicon glyphicon-remove"></span></button>
+				</form>
 
-				<form class="navbar-form navbar-right">
+				<button ng-show="loggedIn" ng-click="logOut()" type="button" class="btn btn-navbar navbar-btn navbar-right"><span class="glyphicon glyphicon-log-out"></span></button>
+				
+				<!-- Add News Button -->
+				<button type="button" ng-show="loggedIn" ng-click="addNew()" class="btn btn-navbar navbar-btn navbar-right"><span class="glyphicon glyphicon-plus"></span></button>
+
+				<!-- Search Bar -->
+				<button type="button" ng-click="showSearch()" class="btn btn-navbar navbar-btn navbar-left"><span class="glyphicon glyphicon-search"></span></button>
+				<form ng-show="searchBar" class="navbar-form navbar-left">
 					<input type="text" ng-model="text" class="form-control search-navbar" placeholder="Search...">
 				</form>
 
-				
 			</div>
-
 		</div>
 	</nav>
 
-	<!-- Modal -->
-	<div class="modal fade" id="loginModal" role="dialog">
-		<div class="modal-dialog">
-		
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-body">
-					<h2>Log in</h2>
-					<hr />
-					<form name="logInForm">
-						<div class="form-group">
-							<h4>Username:</h4>
-							<div class="alert alert-danger my-alert" ng-show="logInForm.username.$dirty && logInForm.username.$invalid" role="alert">Username field is required.</div>
-							<input type="text" class="form-control" ng-model="username" name="username" placeholder="Enter username..." required>
-						</div>
-						<div class="form-group">
-							<h4>Password:</h4>
-							<div class="alert alert-danger my-alert" ng-show="logInForm.password.$dirty && logInForm.password.$invalid" role="alert">Password field is required.</div>
-							<input type="password" class="form-control" ng-model="password" name="password" placeholder="Enter password..." required>
-						</div>
-						<hr />
-						<div class="row">
-							<button type="submit" ng-click="logIn()" ng-disabled="logInForm.username.$invalid || logInForm.password.$invalid" class="btn btn-default my-btn pull-right col-sm-12 col-md-2" >Log in</button>
-							<button type="button" ng-click="resetLogin()" data-dismiss="modal" class="btn btn-default my-btn pull-right col-sm-12 col-md-2" >Cancel</button>
-						</div>
-					</form>
-					
-				</div>
-			</div>
-			
-		</div>
-	</div>
+	
 
 
 	<!-- Body -->
@@ -105,6 +90,7 @@
 	<script src="news/news-controllers.js"></script>
 
 	<!-- Footer -->
+	<p class="main-footer">Programming of User Interfaces. EIT Digital Master School.</p>
 	
 
 </body>

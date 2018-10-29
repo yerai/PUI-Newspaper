@@ -1,4 +1,4 @@
-var app = angular.module("newssapp", ["ngRoute", "ngResource","ngSanitize"]);
+var app = angular.module("newssapp", ["ngRoute", "ngResource","ngSanitize", 'textAngular']);
 
 // TODO: Code of the routeProvider
 app.config(function ($routeProvider) { 
@@ -18,6 +18,10 @@ app.config(function ($routeProvider) {
 	.when('/add', {
 		templateUrl: 'news/news-creation.html',
 		controller: 'newsCreationCtrl'
+	})
+	.when('/edit/:id', {
+		templateUrl: 'news/news-edition.html',
+		controller: 'newsEditionCtrl'
 	})
 	.otherwise({
 		templateUrl: 'news/news-list.html',

@@ -1,27 +1,28 @@
 <div ng-init="getNew()" class="container">
-    <div class="well my-card small-well">
-        <div class="row">
-            <div class="col-sm-12 col-md-4">
-                <img class="img-responsive center-block my-img" src="{{getImage(new.image_media_type, new.image_data)}}"/>
-            </div>
-            <div class="col-sm-12 col-md-8">
-                <h1>{{new.title}}</h1>
-                <h3>{{new.subtitle}}</h3>
-                <h4 class="my-text">{{new.abstract}}</h4>
-                <p class="my-text">{{new.body}}</p>
-                
-            </div>
-        </div>
-        <hr /> 
-        <div class="row">
-            <div class="col-sm-3 pull-right">
-                <h4>{{new.category}}</h4>
-                <p><strong>Author: </strong>{{new.id_user}}<br>
-                <strong>Published: </strong>{{new.update_date}}</p>
-                           
-            </div>
-        </div>
-        
 
+    <div class="row">
+        <div class="col-xs-12 col-sm-4">
+            <img class="img-responsive center-block" src="{{getImage(new.image_media_type, new.image_data)}}"/>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+            <h4 class="feed-category">{{new.category}}</h4>
+            <h2 class="feed-title">{{new.title}}</h2>
+            <h3 class="feed-subtitle">{{new.subtitle}}</h3>
+            <h4 class="feed-abstract">{{new.abstract}}</h4>
+        </div>
+    </div>
+    <hr />
+    <h4 class="feed-body" ng-bind-html="new.body"></h4>
+    <hr />
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h5 class="pull-right"><strong>Author: </strong>{{new.id_user}}</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h5 class="pull-right"><strong>Published: </strong>{{new.update_date}}</h5>
+        </div>
     </div>
 </div>

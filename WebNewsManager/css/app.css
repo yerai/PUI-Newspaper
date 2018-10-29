@@ -1,10 +1,23 @@
 /* app css stylesheet */
 
+/* Font */
+body{
+    font-family: 'Lato';
+    color: #0d0f14;
+}
+
 /* Title */
-.main-title{
+.main-title, .main-title:hover, .main-title:link{
     text-align: center;
     font-family: 'Abril Fatface';
+    margin:10px;
+    color: #0d0f14;
 }
+
+a:link{
+    text-decoration:none;
+}
+
 
 /* Navbar */
 @media (min-width: 768px) {
@@ -19,19 +32,65 @@
     }
 }
 
+@media (max-width: 768px) {
+    
+}
+
+.navbar-right ~ .navbar-right {
+    margin-right: 5px;
+}
+
 /* Footer */
 .main-footer {
     text-align: center;
     background-color: #f5f5f5;
     padding: 20px;
     margin-bottom: 0px;
+    margin-top:20px;
 }
 
 /* News List */
-    /* Category */
-    .my-category{
+
+    /* Title */
+    .feed-title{
+        font-family: 'Abril Fatface';
+        color: #0d0f14;
+        margin-top:0px;
+    }
+
+    /* Subtitle */
+    .feed-subtitle{
+        text-align: justify;
         font-style: bold;
-        color: red;
+        color:#0d0f14;
+    }
+
+    /* Abstract */ 
+    .feed-abstract {
+        text-align: justify;
+    }
+
+    /* Category */
+    .feed-category{
+        font-family: 'Roboto', sans-serif;
+        color: #4f5d75;
+        margin-bottom: 0px;
+    }
+
+    /* Image */
+    .feed-img {
+        padding:0px;
+    }
+
+    .small-feed-img {
+        padding:0px;
+        margin-top: 36px;
+    }
+
+    /* Body */
+    .feed-body{
+        color: #0d0f14;
+        text-align: justify;
     }
 
 
@@ -40,10 +99,47 @@
     .my-button{
         margin-bottom: 20px;
     }
+
+    /* Input File */
+    .my-input {
+        margin-left: 15px;
+        margin-top: 10px;
+    }
+
+    /* WYSIWYG */
+    .ta-editor {
+        min-height: 300px;
+        height: auto;
+        overflow: auto;
+        font-family: inherit;
+        font-size: 100%;
+    }
+      
+
 /* Alerts */
 .my-alert{
     height: 30px;
     padding: 5px;
     padding-left: 12px;
     margin-bottom: 10px;
+}
+
+/* Modals */
+.modal {
+    text-align: center;
+    padding: 0!important;
+  }
+  
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
 }

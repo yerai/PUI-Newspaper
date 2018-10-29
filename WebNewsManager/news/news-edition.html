@@ -1,5 +1,99 @@
-
-<!-- Code to browse the image file and binds the image to the scope variables "news.image_media_type" and "news.image_data" -->
- 
-<!-- <img style="width:300px; height:300px;" ng-src="{{ 'data:' + news.image_media_type + ';base64,' + news.image_data }}" />
-<input type="file" ng-file-select="onFileSelect($files);" ng-model="news"></input> -->
+<div ng-init="getNew()"class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-xs-12 col-md-8">
+                <h1>Create Article</h1>
+                <hr />
+                <form name="createNewForm" method="post">
+                    <!-- Title -->
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <div ng-show="createNewForm.title.$dirty && createNewForm.title.$invalid" class="alert alert-danger my-alert" role="alert">Title field is required.</div>
+                        <input type="text" class="form-control" ng-model="new.title" name="title" id="title" placeholder="Title..." required>
+                    </div>
+                    <!-- Subtitlte -->
+                    <div class="form-group">
+                            <label for="subtitle">Subtitlte:</label>
+                            <div ng-show="createNewForm.subtitle.$dirty && createNewForm.subtitle.$invalid" class="alert alert-danger my-alert" role="alert">Subtitlte field is required.</div>
+                            <input type="text" class="form-control" ng-model="new.subtitle" name="subtitle" id="subtitle" placeholder="Subtitlte..." required>
+                        </div>
+                    <!-- Category -->
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <div ng-show="createNewForm.category.$dirty && createNewForm.category.$invalid" class="alert alert-danger my-alert" role="alert">Category field is required.</div>
+                        <select class="form-control" ng-model="new.category" id="category" name="category" required>
+                            <option>National</option>
+                            <option>Economy</option>
+                            <option>Sports</option>
+                            <option>Technology</option>
+                        </select>
+                    </div>
+                    <!-- Abstract -->
+                    <div class="form-group">
+                        <label for="abstract">Abstract:</label>
+                        <div ng-show="createNewForm.abstract.$dirty && createNewForm.abstract.$invalid" class="alert alert-danger my-alert" role="alert">Abstract field is required.</div>
+                        <textarea type="text" class="form-control" ng-model="new.abstract" name="abstract" id="abstract" placeholder="Abstract..." required></textarea>
+                    </div>
+                    <!-- Body -->
+                    <div class="form-group">
+                        <label for="body">Body:</label>
+                        <div ng-show="createNewForm.body.$dirty && createNewForm.body.$invalid" class="alert alert-danger my-alert" role="alert">Body field is required.</div>
+                        <!--<textarea id="body" type="text" class="form-control" ng-model="prueba" name="body" required></textarea>-->
+                        <div  id="body" text-angular="text-angular" name="body" ng-model="new.body" ta-disabled='disabled' required></div>
+                    </div>
+    
+                    <!-- Picture -->
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="picture" class="col-xs-12">Image:</label>
+                            <img id="picture" ng-show="showImage" class="col-xs-12 col-md-7" ng-src="{{'data:' + new.image_media_type + ';base64,' + new.image_data }}"/>
+                            <label class="btn btn-default col-xs-6 my-input" for="my-file">
+                                <input  ng-click="showPreview()" type="file" id="my-file" class="form-control" ng-file-select="onFileSelect($files);" ng-model="new" style="display:none;">Browse...
+                            </label>
+                        </div> 
+                    </div>
+    
+                    <!-- Submit -->
+                    <hr/>
+                    
+                    <button type="submit"  ng-click="updateNew()" ng-disabled="createNewForm.title.$invalid || createNewForm.subtitle.$invalid || createNewForm.category.$invalid || createNewForm.abstract.$invalid || createNewForm.body.$invalid" class="btn col-xs-12 my-button">Save Changes</button>
+                    <button type="button" ng-click="resetForm()" class="btn col-xs-5 my-button">Reset</button>
+                    <button type="button" ng-click="cancelForm()" class="btn col-xs-5  col-xs-offset-2 my-button">Cancel</button>
+    
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Modal -->
+    <div class="modal fade" id="alert" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <!-- Success! -->
+                    <div ng-show="result" class="modal-header">
+                        <button type="button" ng-click="cancelForm()" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Success!</h4>
+                    </div>
+                    <div ng-show="result" class="modal-body">
+                        Congratulations! Your article has been updated succesfully!
+                    </div>
+                     
+                    <!-- Fail -->
+                    <div ng-show="!result" class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Ouch!</h4>
+                    </div>
+                    <div  ng-show="!result" class="modal-body">
+                        Your article coudn't be updated! Try again in a few minutes!
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+    <!-- Code to browse the image file and binds the image to the scope variables "news.image_media_type" and "news.image_data" -->
+     
+    <!-- <img style="width:300px; height:300px;" ng-src="{{ 'data:' + news.image_media_type + ';base64,' + news.image_data }}" />
+    <input type="file" ng-file-select="onFileSelect($files);" ng-model="news"></input> -->
+    

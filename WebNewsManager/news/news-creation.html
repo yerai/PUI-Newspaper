@@ -1,10 +1,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-offset-2 col-sm-12 col-md-8">
-            <h1>Add New</h1>
+        <div class="col-md-offset-2 col-xs-12 col-md-8">
+            <h1>Create Article</h1>
             <hr />
-            <form name="createNewForm">
+            <form name="createNewForm" method="post">
                 <!-- Title -->
                 <div class="form-group">
                     <label for="title">Title:</label>
@@ -38,32 +38,61 @@
                 <div class="form-group">
                     <label for="body">Body:</label>
                     <div ng-show="createNewForm.body.$dirty && createNewForm.body.$invalid" class="alert alert-danger my-alert" role="alert">Body field is required.</div>
-                    <textarea type="text" class="form-control" ng-model="new.body" name="body" id="body" placeholder="Body..." required></textarea>
+                    <!--<textarea id="body" type="text" class="form-control" ng-model="prueba" name="body" required></textarea>-->
+                    <div  id="body" text-angular="text-angular" name="body" ng-model="new.body" ta-disabled='disabled' required></div>
                 </div>
 
                 <!-- Picture -->
                 <div class="form-group">
-                    <img class="mg-responsive center-block col-sm-12 col-md-6" ng-src="{{ 'data:' + new.image_media_type + ';base64,' + new.image_data }}" />
+                    <div class="row">
+                        <label for="picture" class="col-xs-12">Image:</label>
+                        <img id="picture" ng-show="showImage" class="col-xs-12 col-md-7" ng-src="{{'data:' + new.image_media_type + ';base64,' + new.image_data }}"/>
+                        <label class="btn btn-default col-xs-6 my-input" for="my-file">
+                            <input  ng-click="showPreview()" type="file" id="my-file" class="form-control" ng-file-select="onFileSelect($files);" ng-model="new" style="display:none;">Browse...
+                        </label>
+                    </div> 
                 </div>
 
-                <div class="form-group">
-                    <input type="file"  class="col-sm-12" ng-file-select="onFileSelect($files);" ng-model="new"></span>
-                </div>
-
-                
                 <!-- Submit -->
-                <div class="form-group">
-                    <button type="submit"  ng-click="createNew()" ng-disabled="createNewForm.title.$invalid || createNewForm.subtitle.$invalid || createNewForm.category.$invalid || createNewForm.abstract.$invalid || createNewForm.body.$invalid" class="btn col-sm-12 my-button">Publish</button>
-                </div>
-                <div class="form-group">
-                    <button type="button" ng-click="resetForm()" class="btn col-sm-12 my-button">Cancel</button>
-                </div>
-            </form>
-           
+                <hr/>
+                
+                <button type="submit"  ng-click="createNew()" ng-disabled="createNewForm.title.$invalid || createNewForm.subtitle.$invalid || createNewForm.category.$invalid || createNewForm.abstract.$invalid || createNewForm.body.$invalid" class="btn col-xs-12 my-button">Publish</button>
+                <button type="button" ng-click="resetForm()" class="btn col-xs-5 my-button">Reset</button>
+                <button type="button" ng-click="cancelForm()" class="btn col-xs-5  col-xs-offset-2 my-button">Cancel</button>
 
+            </form>
         </div>
     </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="alert" role="dialog">
+		<div class="modal-dialog modal-sm">
+			<!-- Modal content-->
+			<div class="modal-content">
+                <!-- Success! -->
+                <div ng-show="result" class="modal-header">
+                    <button type="button" ng-click="cancelForm()" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Success!</h4>
+                </div>
+                <div ng-show="result" class="modal-body">
+                        Congratulations! Your article has been created succesfully!
+                    </div>
+                 
+                <!-- Fail -->
+                <div ng-show="!result" class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Ouch!</h4>
+                </div>
+                <div  ng-show="!result" class="modal-body">
+                    Your article coudn't be created! Try again in a few minutes!
+                </div>
+            </div>
+		</div>
+	</div>
+
+
 <!-- Code to browse the image file and binds the image to the scope variables "news.image_media_type" and "news.image_data" -->
  
 <!-- <img style="width:300px; height:300px;" ng-src="{{ 'data:' + news.image_media_type + ';base64,' + news.image_data }}" />

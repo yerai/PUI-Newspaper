@@ -1,1 +1,31 @@
-<p>TEXT!!</p>
+<div class="row">
+    <div class="col-md-offset-2 col-xs-12 col-md-8">
+        <h1>Log in</h1>
+        <hr />
+        <form name="logInForm" method="post">
+            <!-- Username -->
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <div ng-show="logInForm.username.$dirty && logInForm.username.$invalid" class="alert alert-danger my-alert" role="alert">Username field is required.</div>
+                <input type="text" class="form-control" ng-model="user.username" name="username" id="username" placeholder="Username..." required>
+            </div>
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <div ng-show="logInForm.password.$dirty && logInForm.password.$invalid" class="alert alert-danger my-alert" role="alert">Password field is required.</div>
+                <input type="password" class="form-control" ng-model="user.password" name="password" id="password" placeholder="Password..." required>
+            </div>
+            
+            <hr />
+            <!-- Buttons -->
+            <div class="row">
+                <div class="col-xs-5">
+                    <button type="submit" ng-click="resetLogin()" class="form-control">Cancel</button>
+                </div>
+                <div class="col-xs-offset-2 col-xs-5">
+                    <button type="submit" ng-click="logIn()" ng-disabled="logInForm.username.$invalid || logInForm.password.$invalid" class="form-control">Log in</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

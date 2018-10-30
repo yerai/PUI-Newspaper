@@ -32,10 +32,6 @@ a:link{
     }
 }
 
-@media (max-width: 768px) {
-    
-}
-
 .navbar-right ~ .navbar-right {
     margin-right: 5px;
 }

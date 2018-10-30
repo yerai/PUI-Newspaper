@@ -57,19 +57,11 @@
 				</ul>
 				
 				<!-- Sign in -->
-				<button ng-show="!wantsToLogIn && !loggedIn" ng-click="showTheLogIn()" type="button" class="btn btn-navbar navbar-btn navbar-right"><span class="glyphicon glyphicon-log-in"></span></button>
-
-				<form name="logInForm" ng-show="wantsToLogIn && !loggedIn" class="navbar-form navbar-right">
-						<input type="text" class="form-control" ng-model="username" name="username" placeholder="Enter username..." required>
-						<input type="password" class="form-control" ng-model="password" name="password" placeholder="Enter password..." required>
-						<button type="submit" ng-click="logIn()" ng-disabled="logInForm.username.$invalid || logInForm.password.$invalid" class="form-control"><span class="glyphicon glyphicon-ok"></span></button>
-						<button type="submit" ng-click="resetLogin()" class="form-control"><span class="glyphicon glyphicon-remove"></span></button>
-				</form>
-
-				<button ng-show="loggedIn" ng-click="logOut()" type="button" class="btn btn-navbar navbar-btn navbar-right"><span class="glyphicon glyphicon-log-out"></span></button>
+				<button ng-show="!user.loggedIn" ng-click="showTheLogIn()" type="button" class="btn btn-navbar navbar-btn navbar-right"><span class="glyphicon glyphicon-log-in"></span></button>
+				<button ng-show="user.loggedIn" ng-click="logOut()" type="button" class="btn btn-navbar navbar-btn navbar-right"><span class="glyphicon glyphicon-log-out"></span></button>
 				
 				<!-- Add News Button -->
-				<button type="button" ng-show="loggedIn" ng-click="addNew()" class="btn btn-navbar navbar-btn navbar-right"><span class="glyphicon glyphicon-plus"></span></button>
+				<button type="button" ng-show="user.loggedIn" ng-click="addNew()" class="btn btn-navbar navbar-btn navbar-right"><span class="glyphicon glyphicon-plus"></span></button>
 
 				<!-- Search Bar -->
 				<button type="button" ng-click="showSearch()" class="btn btn-navbar navbar-btn navbar-left"><span class="glyphicon glyphicon-search"></span></button>

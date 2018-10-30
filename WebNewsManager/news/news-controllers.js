@@ -98,7 +98,31 @@ app.controller('newsShowCtrl', function($scope, $routeParams, NewsDetailsService
     };
 });
 
-app.controller('mainCtrl', function($scope, LoginService, $http, $location){
+app.controller('mainCtrl', function($scope, $location, $http, $rootScope){
+
+    
+    // Log in Variables
+    $rootScope.user = {
+        username: '',
+        password: '',
+        loggedIn: false
+    };
+
+    // Function to log out
+    $scope.logOut = function(){
+        console.log("log outttt");
+        $http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=REVWX1RFQU1fMDE=';
+        $rootScope.user.loggedIn = false;
+        $rootScope.user.username = '';
+        $rootScope.user.password = '';
+        console.log($scope.user.loggedIn);
+    };
+
+    // Function to go to Log in
+    $scope.showTheLogIn = function(){
+        console.log("show the log in");
+        $location.path('/login');
+    };
 
     // Function to show Search Bar
     $scope.searchBar = false;
@@ -111,30 +135,36 @@ app.controller('mainCtrl', function($scope, LoginService, $http, $location){
     }
 
     //Function to show Log in Form
+    /*
     $scope.wantsToLogIn = false;
     $scope.showTheLogIn = function(){
         $scope.wantsToLogIn = true;
     }
+    */
 
     // Funtion to see wether the category is active or not in the navbar
     $scope.isActive = function (viewLocation) {
         return viewLocation === $location.path();
     };
 
-    // Log in variables
+    // Log in variables 
+    /*
     $scope.username = '';
     $scope.password = '';
     $scope.loggedIn = false;
+    */
     
 
     // Function to reset log in form
+    /*
     $scope.resetLogin = function(){
         $scope.wantsToLogIn = false;
         $scope.username = '';
         $scope.password = '';
-    };
+    };*/
 
     // Function to obtain token after log in
+    /*
     $scope.logIn = function(){
         LoginService.login({passwd: $scope.password, username: $scope.username}, function(data){
             $http.defaults.headers.common['Authorization'] = data.Authorization + ' apikey=' + data.apikey;
@@ -149,9 +179,10 @@ app.controller('mainCtrl', function($scope, LoginService, $http, $location){
         $scope.loggedIn = false;
         $scope.resetLogin();
     }
+    */
 
     //Callback for ng-click 'addNew'
-    $scope.addNew = function (newId) {
+    $scope.addNew = function () {
         $location.path('/add');
     };
 
@@ -290,4 +321,29 @@ app.controller('newsEditionCtrl', function($scope, $routeParams, $location, News
     };
 });
 
+app.controller('loginCtrl', function($scope, $rootScope, $location, $http, LoginService){
+    
+
+    // Function to obtain token after log in
+    $scope.logIn = function(){
+        LoginService.login({passwd: $scope.user.password, username: $scope.user.username}, function(data){
+            $http.defaults.headers.common['Authorization'] = data.Authorization + ' apikey=' + data.apikey;
+            $rootScope.user.loggedIn = true;
+            $location.path("/");
+        });
+    }
+
+    // Function to reset login 
+    $scope.resetLogin = function(){
+        $rootScope.user.username = '';
+        $rootScope.user.password = '';
+
+        // Avoid getting errors for the fields when reseting
+        $scope.logInForm.$setPristine();
+        $scope.logInForm.$setValidity();
+        $scope.logInForm.$setUntouched();
+    }
+
+
+});
 

@@ -48,7 +48,7 @@
                             <img class="img-responsive center-block col-xs-12 small-feed-img" ng-click="showNew(new.id)" src="{{getImage(new.thumbnail_media_type, new.thumbnail_image)}}"/>
                         </div>
                         <div class="col-xs-12 col-md-8">
-                            <h4 class="feed-category">{{new.category}}</h4>
+                            <h4 class="feed-category"><span class="label label-warning">{{new.category}}</span></h4>
                             <h2 ng-click="showNew(new.id)" class="feed-title">{{new.title}}</h2>
                             <h4 class="feed-subtitle">{{new.subtitle}}</h4>
                             <p class="feed-abstract">{{new.abstract}}</p>

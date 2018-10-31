@@ -70,7 +70,8 @@ a:link{
 
     /* Category */
     .feed-category{
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto';
+        font-weight: bold;
         color: #4f5d75;
         margin-bottom: 0px;
     }

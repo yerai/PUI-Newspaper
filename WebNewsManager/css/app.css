@@ -3,7 +3,8 @@
 /* Font */
 body{
     font-family: 'Roboto', sans-serif;;
-    color: #0d0f14;
+    color: #292f3d;
+    background-color: #f4f4f6;
 }
 
 /* Title */
@@ -11,8 +12,9 @@ body{
     text-align: center;
     font-family: 'Merriweather';
     margin:10px;
-    color: #0d0f14;
+    color: #292f3d;
     font-weight: bold;
+    padding: 15px;
 }
 
 a:link{
@@ -21,29 +23,63 @@ a:link{
 
 
 /* Navbar */
-@media (min-width: 768px) {
-    .navbar .navbar-nav {
-        display: inline-block;
-        float: none;
-        vertical-align: top;
-    }
-    
-    .navbar .navbar-collapse {
-        text-align: center;
-    }
-}
 
-.navbar-right ~ .navbar-right {
-    margin-right: 5px;
-}
+    /* Background color */
+    .my-navbar {
+        background-color: #292f3d;
+        color: #f4f4f6;
+    }
+
+    /* Section style */
+    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+        color: #fcc44b;
+        background-color: transparent;
+        font-weight: bold;
+    }
+
+    .navbar-default .navbar-nav > li > a:visited, .navbar-default .navbar-nav > li > a {
+        color: #f4f4f6;
+        background-color: transparent;
+    }
+
+    /* Style when collapsed */
+    @media (min-width: 768px) {
+        .navbar .navbar-nav {
+            display: inline-block;
+            float: none;
+            vertical-align: top;
+        }
+        
+        .navbar .navbar-collapse {
+            text-align: center;
+        }
+    }
+
+    /* Margin of button */
+    .navbar-right ~ .navbar-right {
+        margin-right: 5px;
+    }
+
+    /* Navbar button */
+    .my-navbar-button{
+        background-color: #fcc44b;
+        color: #292f3d;
+    }
+
+    .my-navbar-button:hover{
+        background-color: #fcac00;
+        color: #292f3d;
+    }
 
 /* Footer */
 .main-footer {
     text-align: center;
-    background-color: #f5f5f5;
+    background-color: #292f3d;
+    color: #f4f4f6;
     padding: 20px;
     margin-bottom: 0px;
-    margin-top:20px;
+    height: 200px;
+    margin-top:30px;
 }
 
 /* News List */

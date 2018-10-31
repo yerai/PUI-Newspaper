@@ -2,16 +2,17 @@
 
 /* Font */
 body{
-    font-family: 'Lato';
+    font-family: 'Roboto', sans-serif;;
     color: #0d0f14;
 }
 
 /* Title */
 .main-title, .main-title:hover, .main-title:link{
     text-align: center;
-    font-family: 'Abril Fatface';
+    font-family: 'Merriweather';
     margin:10px;
     color: #0d0f14;
+    font-weight: bold;
 }
 
 a:link{
@@ -49,9 +50,10 @@ a:link{
 
     /* Title */
     .feed-title{
-        font-family: 'Abril Fatface';
+        font-family: 'Merriweather';
         color: #0d0f14;
         margin-top:0px;
+        font-weight: bold;
     }
 
     /* Subtitle */

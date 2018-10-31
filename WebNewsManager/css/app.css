@@ -88,7 +88,7 @@ a:link{
     .feed-title{
         font-family: 'Merriweather';
         color: #0d0f14;
-        margin-top:0px;
+        margin-top:4px;
         font-weight: bold;
     }
 
@@ -115,11 +115,12 @@ a:link{
     /* Image */
     .feed-img {
         padding:0px;
+        margin-bottom: 4px;
     }
 
     .small-feed-img {
         padding:0px;
-        margin-top: 36px;
+        margin-top: 40px;
     }
 
     /* Body */

@@ -30,7 +30,7 @@
 	<!-- Header -->
 
 	<a href="#"><h1 class="main-title">EIT Digital Newspaper</h1></a>
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default my-navbar">
 		<div class="container-fluid">
 			<!-- Collapse -->
 			<div class="navbar-header">
@@ -55,14 +55,14 @@
 				</ul>
 				
 				<!-- Sign in -->
-				<button ng-show="!user.loggedIn" ng-click="showTheLogIn()" type="button" class="btn btn-navbar navbar-btn navbar-right"><span class="glyphicon glyphicon-log-in"></span></button>
-				<button ng-show="user.loggedIn" ng-click="logOut()" type="button" class="btn btn-navbar navbar-btn navbar-right"><span class="glyphicon glyphicon-log-out"></span></button>
+				<button ng-show="!user.loggedIn" ng-click="showTheLogIn()" type="button" class="btn btn-navbar navbar-btn navbar-right my-navbar-button"><span class="glyphicon glyphicon-log-in"></span></button>
+				<button ng-show="user.loggedIn" ng-click="logOut()" type="button" class="btn btn-navbar navbar-btn navbar-right my-navbar-button"><span class="glyphicon glyphicon-log-out"></span></button>
 				
 				<!-- Add News Button -->
-				<button type="button" ng-show="user.loggedIn" ng-click="addNew()" class="btn btn-navbar navbar-btn navbar-right"><span class="glyphicon glyphicon-plus"></span></button>
+				<button type="button" ng-show="user.loggedIn" ng-click="addNew()" class="btn btn-navbar navbar-btn navbar-right my-navbar-button"><span class="glyphicon glyphicon-plus"></span></button>
 
 				<!-- Search Bar -->
-				<button type="button" ng-click="showSearch()" class="btn btn-navbar navbar-btn navbar-left"><span class="glyphicon glyphicon-search"></span></button>
+				<button type="button" ng-click="showSearch()" class="btn btn-navbar navbar-btn navbar-left my-navbar-button"><span class="glyphicon glyphicon-search"></span></button>
 				<form ng-show="searchBar" class="navbar-form navbar-left">
 					<input type="text" ng-model="text" class="form-control search-navbar" placeholder="Search...">
 				</form>
@@ -70,9 +70,6 @@
 			</div>
 		</div>
 	</nav>
-
-	
-
 
 	<!-- Body -->
 	<div ng-view class="container">

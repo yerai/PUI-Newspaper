@@ -7,6 +7,14 @@ body{
     background-color: #f4f4f6;
 }
 
+/* Separator */
+hr {
+    color: #292f3d;
+    background-color: #292f3d;
+    height: 0.5px;
+    opacity: 50%;
+}
+
 /* Title */
 .main-title, .main-title:hover, .main-title:link{
     text-align: center;
@@ -32,7 +40,7 @@ a:link{
 
     /* Section style */
     .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
-        color: #fcc44b;
+        color: #f0ad4e;
         background-color: transparent;
         font-weight: bold;
     }
@@ -41,6 +49,13 @@ a:link{
         color: #f4f4f6;
         background-color: transparent;
     }
+
+    .navbar-default .navbar-nav > li > a:hover {
+        color: #f0ad4e;
+        background-color: transparent;
+        font-weight: bold;
+    }
+
 
     /* Style when collapsed */
     @media (min-width: 768px) {
@@ -62,13 +77,13 @@ a:link{
 
     /* Navbar button */
     .my-navbar-button{
-        background-color: #fcc44b;
-        color: #292f3d;
+        background-color: #f0ad4e;
+        color: #f4f4f6;
     }
 
     .my-navbar-button:hover{
-        background-color: #fcac00;
-        color: #292f3d;
+        background-color: #f4f4f6;
+        color: #f0ad4e;
     }
 
 /* Footer */
@@ -123,10 +138,19 @@ a:link{
         margin-top: 40px;
     }
 
+    .no-padding {
+        padding:0px;
+    }
+
     /* Body */
     .feed-body{
         color: #0d0f14;
         text-align: justify;
+    }
+
+    /* Well */
+    .my-well {
+       
     }
 
 

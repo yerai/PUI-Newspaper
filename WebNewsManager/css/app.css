@@ -15,6 +15,17 @@ hr {
     opacity: 50%;
 }
 
+/* Button */
+.my-btn {
+    background-color: #292f3d;
+    color: #f0ad4e;
+    font-weight: bold;
+}
+.my-btn:hover {
+    background-color: #f0ad4e;
+    color: #292f3d;
+}
+
 /* Title */
 .main-title, .main-title:hover, .main-title:link{
     text-align: center;
@@ -70,6 +81,28 @@ a:link{
         }
     }
 
+    /* Collapsed button */
+    .btn-collapsed-navbar {
+        background-color: #f0ad4e;
+        border-color: #f0ad4e;
+    }
+    .btn-collapsed-navbar:hover{
+        background-color: #f4f4f6;
+        border-color: #f4f4f6;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: #f0ad4e;
+    }
+    .navbar-default .navbar-toggle:hover {
+        border-color: #f4f4f6;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #f4f4f6;
+    }
+    .navbar-default .navbar-toggle .icon-bar:hover {
+        background-color: #f0ad4e;
+    }
+
     /* Margin of button */
     .navbar-right ~ .navbar-right {
         margin-right: 5px;
@@ -106,6 +139,13 @@ a:link{
         margin-top:4px;
         font-weight: bold;
     }
+    .main-new-title{
+        font-family: 'Merriweather';
+        color: #0d0f14;
+        margin-top:10px;
+        font-weight: bold;
+    }
+
 
     /* Subtitle */
     .feed-subtitle{
@@ -113,10 +153,20 @@ a:link{
         font-style: bold;
         color:#0d0f14;
     }
+    .main-subtitle{
+        text-align: justify;
+        font-style: bold;
+        color:#0d0f14;
+        margin-top: 10px;
+    }
 
     /* Abstract */ 
     .feed-abstract {
         text-align: justify;
+    }
+    .main-abstract {
+        text-align: justify;
+        margin-top: 10px;
     }
 
     /* Category */
@@ -125,6 +175,14 @@ a:link{
         font-weight: bold;
         color: #4f5d75;
         margin-bottom: 0px;
+    }
+
+    .main-category{
+        font-family: 'Roboto';
+        font-weight: bold;
+        color: #4f5d75;
+        margin-bottom: 0px;
+        margin-top: 0px;
     }
 
     /* Image */
@@ -148,6 +206,36 @@ a:link{
         text-align: justify;
     }
 
+    /* Smaller News */
+    @media (max-width: 768px) {
+        .add-margin {
+            margin-bottom: 30px;
+        }
+
+        .main-category{
+            margin-top: 10px;
+        }
+
+        .feed-subtitle{
+            text-align: left;
+        }
+
+        .main-subtitle{
+            text-align: left;
+        }
+    
+        .feed-abstract {
+            text-align: left;
+        }
+
+        .main-abstract {
+            text-align: left;
+        }
+
+        .feed-body{
+            text-align: left;
+        }
+    }
     /* Well */
     .my-well {
        

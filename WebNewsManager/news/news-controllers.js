@@ -4,10 +4,11 @@
 
 app.controller('newsListCtrl', function($scope, $routeParams, $filter, $location, NewsListService, NewsDetailsService){
 
-    //Variable for the newsList from server
+    // Variable for the newsList from server
     $scope.news = '';
+    $scope.allNews = '';
 
-    //Function to get news from server 
+    // Function to get news from server 
     $scope.getNews = function(){
         NewsListService.query(function(data){
            if($routeParams.category != null){

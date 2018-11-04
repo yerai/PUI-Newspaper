@@ -135,54 +135,12 @@ app.controller('mainCtrl', function($scope, $location, $http, $rootScope){
         }
     }
 
-    //Function to show Log in Form
-    /*
-    $scope.wantsToLogIn = false;
-    $scope.showTheLogIn = function(){
-        $scope.wantsToLogIn = true;
-    }
-    */
-
     // Funtion to see wether the category is active or not in the navbar
     $scope.isActive = function (viewLocation) {
         return viewLocation === $location.path();
     };
 
-    // Log in variables 
-    /*
-    $scope.username = '';
-    $scope.password = '';
-    $scope.loggedIn = false;
-    */
-    
-
-    // Function to reset log in form
-    /*
-    $scope.resetLogin = function(){
-        $scope.wantsToLogIn = false;
-        $scope.username = '';
-        $scope.password = '';
-    };*/
-
-    // Function to obtain token after log in
-    /*
-    $scope.logIn = function(){
-        LoginService.login({passwd: $scope.password, username: $scope.username}, function(data){
-            $http.defaults.headers.common['Authorization'] = data.Authorization + ' apikey=' + data.apikey;
-            $scope.loggedIn = true;
-            $location.path("/");
-        });
-    }
-
-    // Function to log out
-    $scope.logOut = function(){
-        $http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=REVWX1RFQU1fMDE=';
-        $scope.loggedIn = false;
-        $scope.resetLogin();
-    }
-    */
-
-    //Callback for ng-click 'addNew'
+    // Callback for ng-click 'addNew'
     $scope.addNew = function () {
         $location.path('/add');
     };

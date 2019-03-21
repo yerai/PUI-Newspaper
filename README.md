@@ -6,7 +6,7 @@ needed to publish/manage a newspaper web page: show the news in its main page,
 show the details of a given news, filter the news according to their category, 
 show the newspaper Twitter timeline, create and update the news contents, remove news, etc.<p>
   
-![alt text](https://github.com/yerai/yerai.github.io/blob/master/images/project-newspaper.png?raw=true)
+![alt text](https://github.com/yerai/yerai.github.io/blob/master/images/newspaper.png?raw=true)
   
 
 <h3>Non-functional requirements</h3>
